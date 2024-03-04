@@ -5,6 +5,7 @@ class PlayerShip(Actor):
     def set_speed (self, movement_speed):
         self.movement_speed = movement_speed
 
+    # liikkumis funktio pelaajan alukselle
     def move (self, direction):
         if (direction == "up"):
             self.y -= self.movement_speed
@@ -14,7 +15,8 @@ class PlayerShip(Actor):
             self.x -= self.movement_speed
         elif (direction == "right"):
             self.x += self.movement_speed
-        # Make sure that the ship remains on the screen
+
+        # Varmistaa että pelaajan avaruusalus pysyy ruudulla
         if self.x < 20:
             self.x = 20
         if self.x > 780:

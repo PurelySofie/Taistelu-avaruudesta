@@ -1,5 +1,6 @@
 from pgzero.actor import Actor
 import time
+from constants import *
 
 class Asteroid(Actor):
 
@@ -12,12 +13,11 @@ class Asteroid(Actor):
 
     def update(self, level_time, time_interval):
         if self.status == STATUS_WAITING:
-            # Check if time reached
             if (time.time() > level_time + self.start_time):
-                # Reset to start position
                 self.x = self.start_pos[0]
                 self.y = self.start_pos[1]
                 self.status = STATUS_VISIBLE
+        
         elif self.status == STATUS_VISIBLE:
             self.y+=self.velocity * 60 * time_interval
 
